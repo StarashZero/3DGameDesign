@@ -27,7 +27,7 @@ github个人主页: [https://starashzero.github.io](https://starashzero.github.i
     因资源目录当中包括场景(Scenes)、动画(Animations)、预设(Prefabs)、脚本(Screpts)、精灵(Sprites)等等。  
     资源目录可以根据实际需要进行增减，比较典型的模型、材料等目录。  
 
-* **对象组织的目录结构**
+* **对象组织的目录结构**  
     ![](picture/1.PNG)  
     对象组织的目录结构比较简单，包括摄像头、光源以及自己创建的游戏对象等，在目录中可以点开查看对象的子对象等。  
 
