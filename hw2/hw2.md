@@ -170,6 +170,9 @@ github个人主页: [https://starashzero.github.io](https://starashzero.github.i
     - 了解 OnGUI() 事件，提升 debug 能力
     - 提升阅读 API 文档能力 
 
+为了减少篇幅，请移步另一篇博客[unity实现井字棋小游戏](game)  
+项目地址:  [https://github.com/StarashZero/3DGameDesign/tree/master/hw2](https://github.com/StarashZero/3DGameDesign/tree/master/hw2)
+
 ## **3、思考题【选做】**
 
 **微软 XNA 引擎的 Game 对象屏蔽了游戏循环的细节，并使用一组虚方法让继承者完成它们，我们称这种设计为“模板方法模式”。**
