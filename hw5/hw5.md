@@ -380,7 +380,7 @@ UML图:
     }
     ```  
     场景控制类接口，与之前项目用途一致。  
-    * **FirstController.cs**  
+* **FirstController.cs**  
     ```java
     public class FirstController : MonoBehaviour, ISceneController, IUserAction
     {
@@ -558,4 +558,3 @@ UML图:
 
     ```  
     界面类，构建UI并捕捉用户动作。  
-    
