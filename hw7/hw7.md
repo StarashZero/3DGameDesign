@@ -319,20 +319,21 @@ UML图:
             public delegate void DealDamage(GameObject player);
             public static event DealDamage dealDamage;              //受伤事件发布
 
-
             public bool moveable;           //释放可移动
             public bool stop;               //释放暂停移动
+            public bool change;             //需要改变方向
             public int health;              //当前血量
             Animator animator;
             FollowManager followManager;
             float damageCounter;            //受伤保护计数器
             float hitCounter;               //攻击冷却
+            float collisionCounter;
             private void Start()
             {
                 moveable = false;
                 animator = gameObject.GetComponent<Animator>();
                 followManager = gameObject.GetComponent<FollowManager>();
-                damageCounter = 0;
+                collisionCounter = damageCounter = 0;
                 stop = false;
             }
 
@@ -433,9 +434,14 @@ UML图:
                 }
             }
 
-            //碰撞事件，与玩家碰撞时触发攻击操作
+            //碰撞事件，与玩家碰撞时触发攻击操作，撞墙时改变方向
             private void OnCollisionStay(Collision collision)
             {
+                if (collision.gameObject.tag == "ForbidMonster" && collisionCounter > 0.2)
+                {
+                    change = true;
+                    collisionCounter = 0;
+                }
                 if (collision.gameObject.tag == "Player" && hitCounter > 4)
                 {
                     Hit();
@@ -445,6 +451,11 @@ UML图:
             }
             private void OnCollisionEnter(Collision collision)
             {
+                if (collision.gameObject.tag == "ForbidMonster" && collisionCounter > 0.2)
+                {
+                    change = true;
+                    collisionCounter = 0;
+                }
                 if (collision.gameObject.tag == "Player" && hitCounter > 4)
                 {
                     Hit();
@@ -463,6 +474,7 @@ UML图:
                 }
                 damageCounter = (damageCounter + Time.deltaTime) > 5 ? 5 : damageCounter + Time.deltaTime;
                 hitCounter = (hitCounter + Time.deltaTime) > 5 ? 5 : hitCounter + Time.deltaTime;
+                collisionCounter = (collisionCounter + Time.deltaTime) > 5 ? 5 : collisionCounter + Time.deltaTime;
                 if (followManager.stop && !IsName("Attack 01"))
                     followManager.stop = false;
             }
@@ -885,9 +897,10 @@ UML图:
                     counter += Time.deltaTime;
                     //向前移动一段距离
                     gameObject.transform.Translate(0, 0, speed * 2.6f * Time.deltaTime);
-                    //每3s换一个方向
-                    if (counter > 3)
+                    //每3s换一个方向或撞墙改变方向
+                    if (counter > 3 || monsterManager.change)
                     {
+                        monsterManager.change = false;
                         gameObject.transform.Rotate(0, Random.Range(45, 135), 0);
                         counter = 0;
                     }
