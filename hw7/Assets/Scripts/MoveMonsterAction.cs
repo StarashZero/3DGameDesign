@@ -30,7 +30,7 @@ public class MoveMonsterAction : SSAction
             counter += Time.deltaTime;
             //向前移动一段距离
             gameObject.transform.Translate(0, 0, speed * 2.6f * Time.deltaTime);
-            //每3s换一个方向或撞墙时
+            //每3s换一个方向
             if (counter > 3 || monsterManager.change)
             {
                 monsterManager.change = false;
