@@ -9,3 +9,4 @@
 4. [游戏对象与图形基础-作业与练习](hw4/hw4)  
 5. [Unity实现简易打飞碟(Hit UFO)](hw5/hw5)
 6. [Unity实现简易打飞碟改进版(Hit UFO)](hw6/hw6)
+7. [Unity巡逻兵游戏-与怪兽战斗!](hw7/hw7)  
