@@ -8,6 +8,10 @@ github个人主页: [https://starashzero.github.io](https://starashzero.github.i
 ## **游戏简介**  
 操作迷路少女与迷宫的怪兽进行战斗，击败所有BOSS!  
 
+## **项目要求**  
+参考[潘老师博客](https://pmlpml.github.io/unity3d-learning/07-model-and-animation)  
+在此基础上我做了一些修改，将游戏方式从躲避改为战斗，从碰撞即游戏结束改为碰撞掉血等等，具体变动见玩法以及具体实现。
+
 ## **游戏玩法**  
 1. 使用WASD或者上下左右进行移动，行走1.5s后触发加速  
 2. 按下J进行攻击，有2s冷却时间  
